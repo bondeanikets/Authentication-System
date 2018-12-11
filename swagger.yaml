@@ -1,0 +1,132 @@
+swagger: "2.0"
+info:
+  description: "RESTful API authentication system where we verify if a {user and password} combination matches with the ones stored in a database"
+  version: "1.0.0"
+  title: "Authentication System"
+schemes:
+- "https"
+paths:
+  /signup:
+    post:
+      tags:
+      - "signup"
+      summary: "Add a new credential (username, password) to the database"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "credential object that needs to be added to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/Credential"
+      responses:
+        200:
+          description: "Signup Data Saved Succesfully"
+          
+          
+          
+    put:
+      tags:
+      - "signup"
+      summary: "Update an existing credential (password ONLY) to the database
+      Checks if stored hashed password is same as the password in the body when hashed"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "credential object that needs to be updated to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/CredentialUpdate"
+      responses:
+        200:
+          description: "Credentials Updated Successfully"
+          
+          
+    delete:
+      tags:
+      - "signup"
+      summary: "Delete an existing credential (username, password) from the database
+      Checks if stored hashed password is same as the password in the body when hashed"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "credential object that needs to be updated to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/Credential"
+      responses:
+        200:
+          description: "Credentials Deleted Successfully"
+          
+          
+          
+  
+  /login:
+    post:
+      tags:
+      - "login"
+      summary: "Verify credential (username, password) stored in the database"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "credential object that needs to be added to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/Credential"
+      responses:
+        200:
+          description: "You are logged in!"
+ 
+definitions:
+  
+      
+  Credential:
+    type: "object"
+    required:
+    - "username"
+    - "password"
+    properties:
+      username:
+        type: "string"
+        example: "Aniket"
+      password:
+        type: "string"
+        example: "Bonde"
+        
+  
+  CredentialUpdate:
+    type: "object"
+    required:
+    - "username"
+    - "current_password"
+    - "new_password"
+    properties:
+      username:
+        type: "string"
+        example: "Aniket"
+      current_password:
+        type: "string"
+        example: "Bonde"
+      new_password:
+        type: "string"
+        example: "SBonde"
+        
