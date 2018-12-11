@@ -37,6 +37,10 @@ The current project specification doesn't really exploit the relational structur
 a non-relational database was an obvious choice. Besides, MongoDB is easy to setup, highly scalable and good at 
 handling dynamic querries. The scemaless feature of mongoDB is a bonus!
 
+### Encryption for passwords:
+
+Instead of storing raw passwords, they are hashed and then stored. I am using a salt. A salt is a random sequence added to the password string before using the hash function. The salt is used in order to prevent dictionary attacks and rainbow tables attacks. I am sure there are better encryption algorithms, but this seems to be a standard, hence adopted it.
+
 ## Authors
 
 * **Aniket Bonde**
