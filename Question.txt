@@ -1,0 +1,13 @@
+Q. Build an authentication system where we verify if a {user and password} combination matches with the 
+ones stored in a database. You need to implement it on the API level; we don’t need a front-end for signup 
+or sign in (not discouraged though!).
+
+
+* Key things to do:
+* Have a database connected with the API. You can choose your own database and describe reason for your choice.
+* An insertion function to database for user information. (Sign up related function)
+* Write an encryption method for password storage and verification. (Sign-in related function)
+* Write a described documentation on how to run the code, what considerations were made. You can add anything you
+ have in mind related to a better authentication system. [README.md]
+* You can use light-weight external tools/API to build the system as long as it complies to above key points or 
+write it from scratch.
